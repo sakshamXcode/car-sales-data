@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState } from 'react';
+import SalesTable from './SalesTable';
+import SalesPieChart from './SalesPieChart';
+import { salesData } from './data';
 
-function App() {
+const App = () => {
+  const [selectedCompany, setSelectedCompany] = useState(null);
+
+  // Filter data based on selected company
+  const filteredData = selectedCompany
+    ? salesData.filter((item) => item.company === selectedCompany)
+    : salesData;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <h1>Car Sales Data 2024</h1>
+     
+      <SalesPieChart
+        salesData={salesData}
+        onSelectCompany={(company) => setSelectedCompany(company)}
+        />
+        
+        {
+          filteredData!==salesData && 
+          <button onClick={() => {setSelectedCompany(null); 
+          }}>Show All</button>
+
+        }
+
+      <SalesTable filteredData={filteredData} />
+        </div>
   );
-}
+};
 
 export default App;

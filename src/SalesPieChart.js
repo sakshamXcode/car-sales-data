@@ -23,8 +23,8 @@ const SalesPieChart = ({ salesData, onSelectCompany }) => {
     datasets: [
       {
         data: Object.values(companySales),
-        backgroundColor: ['#2ec84f', '#2f3a41', '#b71ed6', '#4BC0C0', '#9966FF', '#FF9F40'],
-        hoverBackgroundColor: ['#24fd2f', '#000000', '#e00ffb', '#5BD0D0', '#A077FF', '#FFAF50'],
+        backgroundColor: ['#de18e8', '#9410e6', '#16c5e0', '#4BC0C0', '#9966FF', '#FF9F40'],
+        hoverBackgroundColor: ['#f100fe', '#9d00ff', '#00d9fb', '#5BD0D0', '#A077FF', '#FFAF50'],
         borderWidth: 2,
         borderColor: '#ffffff',
         hoverOffset: 20, // Increase "exploding" effect on hover
